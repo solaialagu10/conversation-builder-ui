@@ -38,6 +38,7 @@ const EnterPage = () => {
 		diagram.nodeTemplate = $(
 			go.Node,
 			'Auto',
+			{ selectionAdorned: false },
 			new go.Binding('location', 'loc', go.Point.parse).makeTwoWay(
 				go.Point.stringify
 			),
@@ -74,11 +75,13 @@ const EnterPage = () => {
 		const makePort = (name, align, spot, output, input) => {
 			const horizontal =
 				align.equals(go.Spot.Top) || align.equals(go.Spot.Bottom);
-			return $(go.Shape, {
+				console.log("Horizontal "+horizontal);
+				console.log("align "+align);
+			return $(go.Shape,{				
 				fill: 'transparent',
 				strokeWidth: 0,
-				width: horizontal ? NaN : 8,
-				height: !horizontal ? NaN : 8,
+				width: horizontal ? NaN : 1,
+				height: !horizontal ? NaN : 1,
 				alignment: align,
 				stretch: horizontal
 					? go.GraphObject.Horizontal
@@ -90,7 +93,7 @@ const EnterPage = () => {
 				toLinkable: input,
 				cursor: 'pointer',
 				mouseEnter(e, port) {
-					if (!e.diagram.isReadOnly) port.fill = 'rgba(255,0,255,0.5)';
+					if (!e.diagram.isReadOnly) port.fill = 'transparent';
 				},
 				mouseLeave(e, port) {
 					port.fill = 'transparent';
@@ -108,6 +111,7 @@ const EnterPage = () => {
 			$(
 				go.Node,
 				'Table',
+				{ selectionAdorned: false },
 				nodeStyle(),
 				$(
 					go.Panel,
@@ -142,6 +146,7 @@ const EnterPage = () => {
 			$(
 				go.Node,
 				'Table',
+   				{ selectionAdorned: false },
 				nodeStyle(),
 				$(
 					go.Panel,
@@ -175,6 +180,8 @@ const EnterPage = () => {
 			'Start',
 			$(
 				go.Node,
+				"Auto",
+    			{ selectionAdorned: false },
 				'Table',
 				nodeStyle(),
 				$(
@@ -188,9 +195,9 @@ const EnterPage = () => {
 					}),
 					$(go.TextBlock, 'Start', textStyle(), new go.Binding('text'))
 				),
-				makePort('L', go.Spot.Left, go.Spot.Left, true, false),
+				// makePort('L', go.Spot.Left, go.Spot.Left, true, false),
 				makePort('R', go.Spot.Right, go.Spot.Right, true, false),
-				makePort('B', go.Spot.Bottom, go.Spot.Bottom, true, false)
+				// makePort('B', go.Spot.Bottom, go.Spot.Bottom, true, false)
 			)
 		);
 
@@ -198,7 +205,8 @@ const EnterPage = () => {
 			'End',
 			$(
 				go.Node,
-				'Table',
+				'Table',	
+    			{ selectionAdorned: false },
 				nodeStyle(),
 				$(
 					go.Panel,
@@ -211,9 +219,9 @@ const EnterPage = () => {
 					}),
 					$(go.TextBlock, 'End', textStyle(), new go.Binding('text'))
 				),
-				makePort('T', go.Spot.Top, go.Spot.Top, false, true),
+				// makePort('T', go.Spot.Top, go.Spot.Top, false, true),
 				makePort('L', go.Spot.Left, go.Spot.Left, false, true),
-				makePort('R', go.Spot.Right, go.Spot.Right, false, true)
+				// makePort('R', go.Spot.Right, go.Spot.Right, false, true)
 			)
 		);
 
@@ -239,6 +247,7 @@ const EnterPage = () => {
 			$(
 				go.Node,
 				'Auto',
+    			{ selectionAdorned: false },
 				nodeStyle(),
 				$(go.Shape, 'File', {
 					fill: '#91d5ff',
@@ -256,7 +265,10 @@ const EnterPage = () => {
 						editable: true
 					},
 					new go.Binding('text').makeTwoWay()
-				)
+				),
+				makePort('L', go.Spot.Left, go.Spot.Left, true, true),
+				makePort('R', go.Spot.Right, go.Spot.Right, true, true),
+				makePort('B', go.Spot.Bottom, go.Spot.Bottom, true, false)
 			)
 		);
 
@@ -266,14 +278,14 @@ const EnterPage = () => {
 			{
 				routing: go.Link.AvoidsNodes,
 				curve: go.Link.JumpOver,
-				corner: 5,
+				corner: 2,
 				toShortLength: 4,
 				relinkableFrom: true,
 				relinkableTo: true,
 				reshapable: true,
 				resegmentable: true,
 				mouseEnter(e, link) {
-					link.findObject('HIGHLIGHT').stroke = 'rgba(30,144,255,0.2)';
+					link.findObject('HIGHLIGHT').stroke = 'transparent';
 				},
 				mouseLeave(e, link) {
 					link.findObject('HIGHLIGHT').stroke = 'transparent';
@@ -350,11 +362,19 @@ const EnterPage = () => {
 			nodeTemplateMap: diagram.nodeTemplateMap
 		});
 
-		myPalette.nodeTemplate = $(
-			go.Node,
+		myPalette.nodeTemplate = $(go.Node, "Auto",
+			{ selectionAdorned: false },
 			'Horizontal',
 			$(go.Shape, { fill: 'red' }, new go.Binding('fill', 'color')),
-			$(go.TextBlock,{ stroke: 'red' },  new go.Binding('text').makeTwoWay())
+			$(go.TextBlock,{ stroke: 'red' },  new go.Binding('text').makeTwoWay()),
+			{
+				selectionAdornmentTemplate:
+				  $(go.Adornment, "Auto",
+					$(go.Shape, "RoundedRectangle",
+					{ fill: null, stroke: "red", strokeWidth: 8 }),
+					$(go.Placeholder)
+				  )  // end Adornment
+			  }
 		);
 
 		return myPalette;
@@ -408,7 +428,7 @@ const EnterPage = () => {
 							nodeDataArray={[
 								{ category: 'Start', text: 'Start' },
 								{ text: 'Step' },
-								{ category: 'Conditional', text: '???' },
+								{ category: 'Conditional', text: 'Conditional' },
 								{ category: 'End', text: 'End' },
 								{ category: 'Comment', text: 'Comment' }
 							]}
