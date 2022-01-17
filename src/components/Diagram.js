@@ -1,19 +1,8 @@
-/** @format */
-// @ts-nocheck
-
 import React, { useState } from 'react'; 
-import { Tabs } from 'antd';
 import * as go from 'gojs';
 import { ReactDiagram, ReactPalette } from 'gojs-react';
-import GgEditor from './gg-editor';
-import { GuidedDraggingTool } from './GuidedDraggingTool';
-import './styles.css';
-import { produce } from 'immer';
-
-
-
-
-const EnterPage = () => {
+import '../styles.css';
+const DiagramComponent = () => {
 	const [nodeArray, setNodeArray] = useState([]);
 	const [linkArray, setLinkArray] = useState([]);
 
@@ -379,12 +368,15 @@ const EnterPage = () => {
 
 		return myPalette;
 	};
-
+  const handleSubmit =() =>{
+	  console.log("<><><> "+diagram.model.toJson());
+	document.getElementById("mySavedModel").value = diagram.model.toJson();
+  }
 	const handleModelChange = (obj)  => {
 		console.log('changes: ', obj)
 		  const insertedNodeKeys = obj.insertedNodeKeys;
 		  const modifiedNodeData = obj.modifiedNodeData;
-		  document.getElementById("mySavedModel").value = diagram.model.toJson();
+		 
 		  const modifiedNodeMap  = new Map;
 		  let narr = nodeArray;
 		//   console.log("<><> "+JSON.stringify(modelAsText));
@@ -434,6 +426,7 @@ const EnterPage = () => {
 							]}
 						/>
 						</div>
+						<button onClick={handleSubmit}>submit </button>
 						<div className="wrapper2">
 						<ReactDiagram
 							initDiagram={initDiagram}
@@ -451,4 +444,4 @@ const EnterPage = () => {
 	);
 };
 
-export default EnterPage;
+export default DiagramComponent;

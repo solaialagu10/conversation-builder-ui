@@ -1,0 +1,140 @@
+.suggestions-wrapper{
+    margin: 20px;
+}
+.suggestions-header{
+    font-size:18px;
+    font-weight: 700;
+    color:#636363;
+    padding:10px;
+    padding-top:20px;
+}
+.suggestions-table{
+    margin:10px;
+    margin-left:30px;
+}
+.type-label{
+    font-size: 14px;
+    /* font-weight:500; */
+}
+.type-container{
+    cursor: pointer;   
+    max-width:300px;
+    user-select: none;
+    padding:0 6px;
+    font-size: 14px;    
+    display: inline-flex;
+    vertical-align:middle;
+}
+.type-container input{ 
+    cursor:pointer;
+    width:0;
+    height:0;
+    opacity: 0;
+}
+.checkbox-text{
+    margin-left:6px;
+}
+.checkbox-mark{
+    height:18px;
+    width:18px;
+    top:0;
+    left:0;
+    background-color: #f0efef;
+    border-radius: 50%;
+    border:1px solid #7f7f7f; 
+}
+input:checked~.checkbox-mark{
+    border:none;
+    background-color: #2196f3;
+}
+input:checked~.checkbox-mark::after{
+    display: inline-block;
+}
+.checkbox-mark::after{
+    content: '';
+    top:-3px;
+    left:5px;
+    width:8px;
+    height:8px;
+    border-radius: 50%;
+    background-color: #fff;
+    position: relative;
+}
+
+.suggestions-body{
+    padding:10px;
+}
+.suggestions-title{
+  font-size: 15px;
+  font-weight: 600;
+  color:#636363;
+  margin-left:20px;
+}
+.card-content{
+    display:grid;
+    /* width:100%; */
+    padding:30px;
+    position:relative;
+    margin:20px;
+    box-shadow: 0 0 0.625rem 0 rgba(64,64,64, 0.17);
+    transition:box-shadow 0.2s;
+    
+}
+.card-content:hover{
+    box-shadow: 0 2px 6px  0 rgba(0,0,0, 0.16),
+    0 6px 6px  1px rgba(0,0,0, 0.04);
+}
+
+.category-row{
+    display:flex;
+    /* height:80px; */
+}
+.category-column{
+    width:30%;
+}
+.category-name{
+    min-width: 110px;
+}
+.category-name span,
+.table-layout-label label span{
+    font-size: 14px;
+    font-weight: 600;
+    color:#8e8e8e;
+}
+.category-name span .asterisk,
+.table-layout-label label .asterisk{
+    color:red;
+    margin-left: 2px;
+    font-weight: 100;
+}
+
+.category-select{
+    /* margin-left: 10px; */
+    width:200px;
+
+}
+.table-layout-label{
+    width:150px;
+    text-align: right;
+
+}
+.table-row td{
+   /* padding-top:25px; */
+   padding: 25px 10px 0 0;
+}
+.input-title-class{
+    outline:none;
+    border:1px solid #e0e0e0;
+    border-radius: 2px;
+    padding-left: 10px;
+    width:700px;
+    font-size:15px;
+}
+.input-title-class:focus{
+    outline:1px solid #0a98eb;
+    border:1px solid #0a98eb;
+}
+
+.input-title-class::placeholder{
+    opacity:0.5;
+}

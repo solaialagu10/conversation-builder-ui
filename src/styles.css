@@ -28,7 +28,9 @@
 	background-color: white;
 	/* margin-top:-70px; */
 }
-
+.diagram-component canvas{
+	overflow-x: auto;
+}
 .palette-component {
 	box-sizing: border-box;
 	background-color: white;
