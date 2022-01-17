@@ -75,7 +75,7 @@ const QamakerComponent = () => {
 										<tr className="table-row">
                                           <td className="table-layout-label">
 												<label> 
-													<span>Question 1</span>													
+													<span>{suggestiontype === 'Question & Answer' ? 'Question' : 'Acronym'} 1</span>													
 													<span className='asterisk'>*</span>
 												</label>	
 																		
@@ -84,17 +84,17 @@ const QamakerComponent = () => {
                                             <input type="text" className='input-title-class'></input>
 										  </td>
 										</tr>
-										<tr className="table-row">
-										<td className="table-layout-label">
-												<label> 
-													<span>Question Alternate 1</span>													
-													<span className='asterisk'>*</span>
-												</label>	
-																		
-										  </td>
-										  <td>
-                                            <input type="text" className='input-title-class'></input>
-										  </td>
+										<tr className="table-row" style= {suggestiontype === 'Acronym'? {display:'none'} : {}}>
+											<td className="table-layout-label">
+													<label> 
+														<span>Question Alternate 1</span>													
+														<span className='asterisk'>*</span>
+													</label>	
+																			
+											</td>
+											<td>
+												<input type="text" className='input-title-class'></input>
+											</td>
 										</tr>
 										<tr className="table-row">
 										<td className="table-layout-label">
