@@ -426,7 +426,6 @@ const DiagramComponent = () => {
 							]}
 						/>
 						</div>
-						<button onClick={handleSubmit}>submit </button>
 						<div className="wrapper2">
 						<ReactDiagram
 							initDiagram={initDiagram}
@@ -438,7 +437,6 @@ const DiagramComponent = () => {
 							onModelChange={handleModelChange}
 							skipsDiagramUpdate={true}
 						/>
-						 <textarea id="mySavedModel" ></textarea>
 						</div>
 		</div>
 	);

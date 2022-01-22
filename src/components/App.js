@@ -11,8 +11,8 @@ export default function App() {
 	const [menu, setMenu] = React.useState('homePage');
 	return (
 		<BrowserRouter>
-		<div>
-			<div class="sidenav">
+		<div className="body-wrapper">
+			{/* <div class="sidenav">
 					<ul class="nav">
 						<li class={menu === 'homePage'  ? 'selected' :'' }  onClick = {()=>setMenu('homePage')}>
 						<Link to="/">Bot Builder</Link>
@@ -21,8 +21,18 @@ export default function App() {
 						<Link to="/QAMaker">Q&A Maker</Link>
 					</li>				
 					</ul>
+			</div> */}
+			<div>
+				<button className="button-class button-class1"  id={menu === 'homePage'  ? 'button-selected' :'' } onClick = {()=>setMenu('homePage')}>
+					<div className="button-text"><Link to="/"> Bot Builder</Link></div>
+				</button>				
 			</div>
-				<div class="main">
+			<div>
+				<button className="button-class button-class2" id={menu === 'qaPage'  ? 'button-selected' :'' } onClick = {()=>setMenu('qaPage')}>
+				<div className="button-text"><Link to="/QAMaker">Q&A Maker</Link></div>
+				</button>				
+			</div>
+				<div className="main">
 				<Routes>
 				<Route exact path="/home" element={<Diagram/>} />
 				<Route exact path="/QAMaker" element={<Qamaker/>} />

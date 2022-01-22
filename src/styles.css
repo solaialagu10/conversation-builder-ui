@@ -14,29 +14,35 @@
     height: 150px;
     margin-top: 30px;
     margin-left: -200px;
-	border:1px solid grey;
+	border:1px solid lightgray;
 }
 
 .wrapper2 {	
 	grid-template-columns: 200px 1fr;
 	margin-left: -200px;
-	border:1px solid grey;
-	margin-top: 5px;
+	border:1px solid lightgray;
+	margin-top: 15px;
 }
 .diagram-component {
 	height: calc(100vh - 250px);
-	background-color: white;
+	/* background-color: white; */
+	background-color: rgba(242,245,247,0.48);
 	/* margin-top:-70px; */
+	box-shadow: 0 0 0.625rem 0 rgba(64,64,64, 0.17);
+    transition:box-shadow 0.2s;
 }
 .diagram-component canvas{
 	overflow-x: auto;
 }
 .palette-component {
 	box-sizing: border-box;
-	background-color: white;
+	/* background-color: white; */
+	background-color: rgba(242,245,247,0.48);
 	/* border-right: solid 1px black; */
 	height: 100%;
 	/* margin-top:130px; */
+	box-shadow: 0 0 0.625rem 0 rgba(64,64,64, 0.17);
+    transition:box-shadow 0.2s;
 	
 }
 
@@ -79,3 +85,6 @@ height:300px;
   }
 
   .palette-component canvas { outline: none; }
+
+ 
+  

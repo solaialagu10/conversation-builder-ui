@@ -1,5 +1,6 @@
 .suggestions-wrapper{
     margin: 20px;
+    background-color: rgba(242,245,247,0.48);
 }
 .suggestions-header{
     font-size:18px;
@@ -73,12 +74,12 @@ input:checked~.checkbox-mark::after{
 .card-content{
     display:grid;
     /* width:100%; */
-    padding:30px;
+    padding:20px 30px;
     position:relative;
     margin:20px;
     box-shadow: 0 0 0.625rem 0 rgba(64,64,64, 0.17);
-    transition:box-shadow 0.2s;
-    
+    transition:box-shadow 0.2s;    
+    color:#8e8e8e;    
 }
 .card-content:hover{
     box-shadow: 0 2px 6px  0 rgba(0,0,0, 0.16),
@@ -122,6 +123,9 @@ input:checked~.checkbox-mark::after{
    /* padding-top:25px; */
    padding: 25px 10px 0 0;
 }
+.table-row td:nth-child(2){
+    width:300px;
+}
 .input-title-class{
     outline:none;
     border:1px solid #e0e0e0;
@@ -137,4 +141,63 @@ input:checked~.checkbox-mark::after{
 
 .input-title-class::placeholder{
     opacity:0.5;
+}
+
+.icon-container{
+    background-color: #999;
+    display: inline-block;
+    border-radius: 50%;
+    font-size: 16px;
+    cursor: pointer;
+    color:#fff;
+    margin-left: 5px;
+}
+
+.icon-wrapper{
+    display:flex;
+    position: relative;
+    text-align: center;
+    padding:4px;
+}
+.icon-cls{
+    height:15px;
+    position:relative;
+    display: block;
+}
+
+.action-buttons{
+    float: right;
+    height:45px;
+    padding-right:10px;
+}
+
+.btn-cls{
+    font-size: 14px;
+    height:32px;
+    letter-spacing: .4px;
+    padding:4px 13px;
+    margin:0 10px;
+    border:1px solid #fff;
+    border-radius:2px;
+    cursor: pointer;
+    min-width: 100px;
+    text-transform: capitalize;
+    text-align: center;
+}
+
+.primary-btn{
+    background-color: #007cc5;
+    border-color: #007cc5;
+    color:#fff;
+}
+
+.qna-container {
+    padding-top:10px;
+    padding-left:20px;
+    display: inline-block;
+}
+.qna-container span{
+    font-weight:600;
+    font-size:15px;
+    padding-right:5px;
 }
