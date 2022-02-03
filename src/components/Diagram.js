@@ -108,15 +108,17 @@ const DiagramComponent = () => {
 					$(
 						go.Shape,
 						'Rectangle',
-						{ fill: '#91d5ff', stroke: '#000000', strokeWidth: 1 },
+						{ fill: '#d3d3d3',
+						stroke: '#a9a9a9',
+						strokeWidth: 1},
 						new go.Binding('figure', 'figure')
 					),
 					$(
 						go.TextBlock,
 						textStyle(),
 						{
-							margin: 8,
-							maxSize: new go.Size(200, NaN),
+							margin: 30,
+							maxSize: new go.Size(300, NaN),
 							wrap: go.TextBlock.WrapFit,
 							editable: true
 						},
@@ -143,7 +145,9 @@ const DiagramComponent = () => {
 					$(
 						go.Shape,
 						'Diamond',
-						{ fill: '#91d5ff', stroke: '#000000', strokeWidth: 1 },
+						{ fill: '#d3d3d3',
+						stroke: '#a9a9a9',
+						strokeWidth: 1 },
 						new go.Binding('figure', 'figure')
 					),
 					$(
@@ -178,8 +182,8 @@ const DiagramComponent = () => {
 					'Spot',
 					$(go.Shape, 'Circle', {
 						desiredSize: new go.Size(70, 70),
-						fill: '#91d5ff',
-						stroke: '#000000',
+						fill: '#d3d3d3',
+						stroke: '#a9a9a9',
 						strokeWidth: 1
 					}),
 					$(go.TextBlock, 'Start', textStyle(), new go.Binding('text'))
@@ -202,8 +206,8 @@ const DiagramComponent = () => {
 					'Spot',
 					$(go.Shape, 'Circle', {
 						desiredSize: new go.Size(60, 60),
-						fill: '#91d5ff',
-						stroke: '#000000',
+						fill: '#d3d3d3',
+						stroke: '#a9a9a9',
 						strokeWidth: 1
 					}),
 					$(go.TextBlock, 'End', textStyle(), new go.Binding('text'))
@@ -238,16 +242,16 @@ const DiagramComponent = () => {
 				'Auto',
     			{ selectionAdorned: false },
 				nodeStyle(),
-				$(go.Shape, 'File', {
-					fill: '#91d5ff',
-					stroke: '#000000',
-					strokeWidth: 1
+				$(go.Shape, 'RoundedRectangle', {
+					fill: '#d3d3d3',
+						stroke: '#a9a9a9',
+						strokeWidth: 1
 				}),
 				$(
 					go.TextBlock,
 					textStyle(),
 					{
-						margin: 8,
+						margin:8,
 						maxSize: new go.Size(240, NaN),
 						wrap: go.TextBlock.WrapFit,
 						textAlign: 'center',
@@ -419,10 +423,10 @@ const DiagramComponent = () => {
 							divClassName="palette-component"
 							nodeDataArray={[
 								{ category: 'Start', text: 'Start' },
-								{ text: 'Step' },
-								{ category: 'Conditional', text: 'Conditional' },
+								{ text: 'Intent' },
+								{ category: 'Conditional', text: 'Condition' },
 								{ category: 'End', text: 'End' },
-								{ category: 'Comment', text: 'Comment' }
+								{ category: 'Comment', text: 'Response Text' }
 							]}
 						/>
 						</div>

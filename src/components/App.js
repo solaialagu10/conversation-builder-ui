@@ -4,6 +4,7 @@
 import React from 'react'; 
 import Diagram from "./Diagram";
 import Qamaker from "./Qamaker";
+import Chatbot from "./Chatbot";
 import { BrowserRouter, Route, Navigate , Routes, Link } from "react-router-dom";
 import "./App.css";
 
@@ -32,10 +33,16 @@ export default function App() {
 				<div className="button-text"><Link to="/QAMaker">Q&A Maker</Link></div>
 				</button>				
 			</div>
+			<div>
+				<button className="button-class button-class3" id={menu === 'chatbot'  ? 'button-selected' :'' } onClick = {()=>setMenu('chatbot')}>
+				<div className="button-text"><Link to="/Chatbot">Chatbot</Link></div>
+				</button>				
+			</div>
 				<div className="main">
 				<Routes>
 				<Route exact path="/home" element={<Diagram/>} />
 				<Route exact path="/QAMaker" element={<Qamaker/>} />
+				<Route exact path="/chatbot" element={<Chatbot/>} />
 				<Route path="/" element={<Navigate replace to="/home" />} />			
 				</Routes>
 				</div>

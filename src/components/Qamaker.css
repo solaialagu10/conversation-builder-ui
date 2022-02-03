@@ -88,6 +88,8 @@ input:checked~.checkbox-mark::after{
 
 .category-row{
     display:flex;
+    margin-left: 30px;
+    margin-top: 20px;
     /* height:80px; */
 }
 .category-column{
@@ -114,6 +116,10 @@ input:checked~.checkbox-mark::after{
     width:200px;
 
 }
+.category-select-error{
+    border-bottom: 1px solid red;
+    border-radius: 4px;
+}
 .table-layout-label{
     width:150px;
     text-align: right;
@@ -126,7 +132,8 @@ input:checked~.checkbox-mark::after{
 .table-row td:nth-child(2){
     width:300px;
 }
-.input-title-class{
+.questions-table tr td input[type=text],
+.questions-table tr td textarea{
     outline:none;
     border:1px solid #e0e0e0;
     border-radius: 2px;
@@ -134,11 +141,18 @@ input:checked~.checkbox-mark::after{
     width:700px;
     font-size:15px;
 }
-.input-title-class:focus{
+.questions-table tr td input[type=text]:focus,
+.questions-table tr td textarea:focus{
     outline:1px solid #0a98eb;
     border:1px solid #0a98eb;
 }
 
+.input-title-class-error{
+  border: 1px solid red !important
+}
+.input-title-class-error:focus{
+   outline: none !important;
+  }
 .input-title-class::placeholder{
     opacity:0.5;
 }
@@ -183,6 +197,8 @@ input:checked~.checkbox-mark::after{
     min-width: 100px;
     text-transform: capitalize;
     text-align: center;
+    background-color: #fff;
+    color: #007cc5;
 }
 
 .primary-btn{
@@ -191,6 +207,9 @@ input:checked~.checkbox-mark::after{
     color:#fff;
 }
 
+.secondary-btn{
+    border-color: #007cc5;
+}
 .qna-container {
     padding-top:10px;
     padding-left:20px;
@@ -200,4 +219,13 @@ input:checked~.checkbox-mark::after{
     font-weight:600;
     font-size:15px;
     padding-right:5px;
+}
+.modal-alert-msg{
+    margin-bottom: 30px;
+    color:#8e8e8e;
+    font-weight: 600;
+    font-size: 14px;
+}
+.modal-buttons{
+    float:right;
 }
