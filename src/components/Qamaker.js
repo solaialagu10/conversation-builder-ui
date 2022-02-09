@@ -11,6 +11,12 @@ const muiTheme = getMuiTheme({
 		secondary2color:"#000"
 	}
 })
+const muiTheme2 = getMuiTheme({
+	palette:{
+		accent1Color: "rgb(0,84,129)",
+		secondary2color:"#999"
+	}
+})
 const QamakerComponent = () => {
 	const options = [
 		{ value: 'Walmart', label: 'Walmart' },
@@ -43,14 +49,14 @@ const QamakerComponent = () => {
 		  divisionErrorText:"",
 		  categoryErrorText:""
 	  }]
-	  const [QnA,setQnA] = React.useState(qAObj);
-	  const [division,setDivision] = React.useState('');
-	  const [category,setCategory] = React.useState('');
-	  const [subCategory,setSubCategory] = React.useState('');
-      const [addQModal,setAddQModal] = React.useState(false);
-	  const [submitSuggestionModal,setSubmitSuggestionModal] = React.useState(false);
-	  const [publishSuggestionModal,setPublishSuggestionModal] = React.useState(false);
-	  const [modalMessage,setModalMessage] = React.useState('');
+	  const [QnA,setQnA] = useState(qAObj);
+	  const [division,setDivision] = useState('');
+	  const [category,setCategory] = useState('');
+	  const [subCategory,setSubCategory] = useState('');
+      const [addQModal,setAddQModal] = useState(false);
+	  const [submitSuggestionModal,setSubmitSuggestionModal] = useState(false);
+	  const [publishSuggestionModal,setPublishSuggestionModal] = useState(false);
+	  const [modalMessage,setModalMessage] = useState('');
 	  const setDivisionValue = (value)=>{			
 			setDivision(value.value);
 	  }
